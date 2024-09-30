@@ -14,6 +14,7 @@ logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(
 
 # Streamlit configs
 st.set_page_config(page_title="Opinion Citation Analyzer", page_icon="⚖️", layout="wide")
+st.write("Limited to 3 citing cases for now") 
 
 # Environment variables
 BASE_URL = os.getenv('BASE_URL', "https://www.courtlistener.com/api/rest/v4")
@@ -66,7 +67,7 @@ def get_citing_opinions(opinion_id: str) -> List[Dict[str, Any]]:
     url = f"{BASE_URL}/search/?q=cites%3A({opinion_id})"
     data = make_request(url)
     if data:
-        return data.get('results', [])[:1]  # Limit to first opinion
+        return data.get('results', [])[:3]  # Limit to first opinion
     return []
 
 def process_single_opinion(main_case_name: str, citing_case_name: str, date: str, opinion_text: str) -> Dict[str, Any]:
@@ -182,6 +183,7 @@ if st.button("Analyze Citations"):
         main_case_name, results = process_opinion(opinion_id)
 
     if results:
+        
         st.success(f"Successfully processed {len(results)} citing opinions for {main_case_name}")
         for i, result in enumerate(results, 1):
             with st.expander(f"{i}. {result.get('citing_case_name', 'Unknown Case')}"):
