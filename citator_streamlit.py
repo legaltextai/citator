@@ -168,8 +168,6 @@ def save_results_to_file(main_case_name: str, results: List[Dict[str, Any]], fil
     with open(filename, 'w', encoding='utf-8') as f:
         json.dump(output, f, indent=2)
 
-# Streamlit UI
-st.title("Opinion Citation Analyzer")
 
 opinion_id = st.text_input("Enter Opinion ID:", "2673149")
 
