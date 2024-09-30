@@ -199,11 +199,14 @@ if st.button("Analyze Citations"):
             mime="application/json"
         )
 
-# Add some instructions or information about the app
 st.sidebar.header("About")
 st.sidebar.info(
-    "This app analyzes citations for a given opinion ID. "
-    "Enter an opinion ID and click 'Analyze Citations' to see how other cases cite and treat the main case."
-    "This is a prototype. Limited to 3 citing cases for now" 
+    """
+    This app analyzes citations for a given opinion ID.
+    
+    Enter an opinion ID and click 'Analyze Citations' to see how other cases cite and treat the main case.
+    
+    This is a prototype. Limited to 3 citing cases for now.
+    """
 )
 
