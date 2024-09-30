@@ -208,14 +208,6 @@ st.sidebar.header("About")
 st.sidebar.info(
     "This app analyzes citations for a given opinion ID. "
     "Enter an opinion ID and click 'Analyze Citations' to see how other cases cite and treat the main case."
+    "This is a prototype. Limited to 3 citing cases for now" 
 )
-st.sidebar.header("Instructions")
-st.sidebar.markdown(
-    """
-    1. Enter a valid opinion ID in the text box.
-    2. Click 'Analyze Citations' to start the analysis.
-    3. Wait for the results to be processed.
-    4. Expand each citing opinion to see details.
-    5. Download the full results as a JSON file.
-    """
-)
+
