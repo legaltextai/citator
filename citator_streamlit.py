@@ -12,7 +12,6 @@ import typing_extensions as typing
 # Set up logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 st.title ("Opinion Citation Analyzer") 
-st.write ("Limited to 3 citing cases for now")  
 
 
 # Environment variables
