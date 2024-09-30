@@ -31,7 +31,6 @@ class CitationAnalysis(typing.TypedDict):
     citing_case_name: str
     citing_case_citation: str
     label: str
-    classification: str
     reasoning: str
 
 def make_request(url: str, max_retries: int = 5, initial_wait: int = 5) -> Dict[str, Any]:
