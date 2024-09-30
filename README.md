@@ -28,12 +28,13 @@ This project is an initial attempt to build a framework for assessing whether a 
 
 ## Classification Matrix
 The current classification system uses the following labels:
-- followed
-- distinguished
-- partially overruled
-- overruled
-- rejected
-- mentioned
+  - 'followed': The citing case followed the cited case as precedent.
+  - 'distinguished': The citing case distinguished the cited case, but did not follow it.
+  - 'partially overruled': The citing case partially overruled the cited case.
+  - 'overruled': The citing case overruled the cited case.
+  - 'rejected': The citing case rejected the cited case as precedent.
+  - 'mentioned': The citing case mentioned the cited case, but did not treat it as precedent.
+  - 'rejected': The citing case rejected the cited case as precedent.
 
 Further development should focus on:
 1. Refining classification criteria
