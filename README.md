@@ -1,7 +1,7 @@
 # Citator Framework
 
 ## Purpose
-This project is my attempt to build a framework for assessing whether a case is "good law" by analyzing how it's cited and treated in subsequent cases.
+This project is an attempt to build a framework for assessing whether a case is "good law" by analyzing how it's cited and treated in subsequent cases.
 
 ## Key Components
 - Court Listener API integration for retrieving case data
