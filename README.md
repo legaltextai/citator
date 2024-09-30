@@ -1,4 +1,4 @@
-# Opinion Status Analysis Framework
+# Court Decision Status Analysis Framework
 
 ## Purpose
 This project is an initial attempt to build a framework for assessing whether a case is "good law" by analyzing how it's cited and treated in subsequent cases.
