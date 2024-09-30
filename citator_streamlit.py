@@ -11,10 +11,9 @@ import typing_extensions as typing
 
 # Set up logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
+st.title ("Opinion Citation Analyzer") 
+st.write ("Limited to 3 citing cases for now")  
 
-# Streamlit configs
-st.set_page_config(page_title="Opinion Citation Analyzer", page_icon="⚖️", layout="wide")
-st.write("Limited to 3 citing cases for now") 
 
 # Environment variables
 BASE_URL = os.getenv('BASE_URL', "https://www.courtlistener.com/api/rest/v4")
