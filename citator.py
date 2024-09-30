@@ -180,7 +180,7 @@ def main():
         for i, result in enumerate(results, 1):
             print(f"\n{i}. {result.get('citing_case_name', 'Unknown Case')}")
             print(f"   Treatment: {result.get('label', 'Unknown')}")
-            print(f"   Reasoning: {result.get('reasoning', 'No reasoning provided')[:100]}...")  # Truncate reasoning for display
+            print(f"   Reasoning: {result.get('reasoning', 'No reasoning provided')}") 
 
         output_filename = f'processed_opinions_{opinion_id}.json'
         save_results_to_file(main_case_name, results, output_filename)
