@@ -49,7 +49,7 @@ Further development should focus on:
 5. Create a web interface for easier interaction with the tool. Use as a playground to tweak variables. 
 
 ## Limitations
-- Limited to Court Listener API data
+- Limited to CourtListener API data
 - Depends on the accuracy of the language model
 - Currently processes a small sample of citing opinions
 
