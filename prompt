@@ -28,7 +28,7 @@ For example,
 {
     "cited_case": {
         "name": "Smith v. Nationwide Mut. Ins. Co.",
-        "citation": "123 F.2d 456 (4th Cir. 1998)"
+        "citation": "567 F.3d 654 (4th Cir. 1998)"
     },
     "citing_cases": [
         {
