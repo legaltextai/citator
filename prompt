@@ -1,0 +1,89 @@
+prompt = f"""Analyze the following opinion text and extract information about how it cites and treats the case "{main_case_name}". Provide the output in the following JSON format:
+
+```json
+{
+    "cited_case": {
+        "name": "The name of the main case being cited",
+        "citation": "The legal citation for the main case"
+    },
+    "citing_cases": [
+        {
+            "name": "Name of the citing case",
+            "citation": "The legal citation for the citing case",
+            "label": "A brief label describing how the citing case treats the cited case. Use one of the following labels:
+                - 'followed': The citing case followed the cited case as precedent.
+                - 'distinguished': The citing case distinguished the cited case, but did not follow it.
+                - 'partially overruled': The citing case partially overruled the cited case.
+                - 'overruled': The citing case overruled the cited case.
+                - 'rejected': The citing case rejected the cited case as precedent.
+                - 'declined to follow': The citing case declined to follow the cited case as precedent.
+                - 'mentioned': The citing case mentioned the cited case, but did not treat it as precedent."
+            },
+            "reasoning": "A brief explanation of why this classification was chosen, based on the content of the opinion"
+        }
+    ]
+}
+
+For example, 
+{
+    "cited_case": {
+        "name": "Smith v. Nationwide Mut. Ins. Co.",
+        "citation": "123 F.2d 456 (4th Cir. 1998)"
+    },
+    "citing_cases": [
+        {
+            "name": "Padavich v. Thalacker",
+            "citation": "98244151 (8th Cir. 1998)",
+            "label": "overruled",
+            "reasoning": "The appellate court explicitly states that it overrules the decision in Smith v. Nationwide Mut. Ins. Co."
+        }
+    ]
+}
+
+{
+    "cited_case": {
+        "name": "Anderson v. Court",
+        "citation": "789 F.2d 123 (3rd Cir. 1997)"
+    },
+    "citing_cases": [
+        {
+            "name": "Chimblo v. C.I.R.",
+            "citation": "99123958 (2d Cir. 1999)",
+            "label": "distinguished",
+            "reasoning": "The appellate court distinguishes Anderson v. Court based on different factual circumstances."
+        }
+    ]
+}
+
+{
+    "cited_case": {
+        "name": "Johnson v. State",
+        "citation": "536 N.W.2d 743 (Iowa 1995)"
+    },
+    "citing_cases": [
+        {
+            "name": "State v. Padavich",
+            "citation": "95152178 (8th Cir. 1998)",
+            "label": "declined to follow",
+            "reasoning": "The Supreme Court declines to follow the lower court's interpretation of the statute as seen in Johnson v. State."
+        }
+    ]
+} 
+
+These are some examples of label description and court opinion language examples: 
+
+"followed" -	The citing case adhered to the cited case as a precedent -	"We follow the decision in Smith v. Nationwide Mut. Ins. Co.", "For the foregoing reasons, the judgment of the court is AFFIRMED." 
+
+"distinguished" -	The citing case identified differences between the current case and the cited case, limiting its precedential value - "The court DISTINGUISHES the holding in Anderson v. Court based on the facts of the present case." "This Circuit has joined several others in distinguishing the two doctrines." 
+
+"partially overruled" -	The citing case overturned certain aspects of the cited case while maintaining others - "The decision in Johnson v. State is PARTIALLY OVERRULED by our ruling."  
+
+"overruled" -	The citing case completely overturns the cited case, negating its precedential authority - "We overrule the decision in Smith v. Nationwide Mut. Ins. Co." , "The court's refusal to honor the previous judgment effectively REVERSES the earlier decision." 
+
+"rejected" -	The citing case refuses to accept the cited case as a precedent - "The court REJECTS the precedent set by Brown v. Board of Education." "The decision of the trial court is REV’D." 
+
+"declined to follow" - The citing case chooses not to adopt the reasoning or decision of the cited case as precedent - "The Supreme Court DECLINES TO FOLLOW the lower court's interpretation of the statute.", "This Circuit declines to follow the reasoning established in prior cases." 
+
+"mentioned" -	The citing case references the cited case without adopting or rejecting it as a precedent - "The opinion refers to Johnson v. State.", "Several courts have mentioned the ruling in Miller v. State without fully endorsing it." 
+
+"""
