@@ -33,7 +33,7 @@ For example,
     "citing_cases": [
         {
             "name": "Padavich v. Thalacker",
-            "citation": "98244151 (8th Cir. 1998)",
+            "citation": "123 F.2d 456 (8th Cir. 1998)",
             "label": "overruled",
             "reasoning": "The appellate court explicitly states that it overrules the decision in Smith v. Nationwide Mut. Ins. Co."
         }
@@ -48,7 +48,7 @@ For example,
     "citing_cases": [
         {
             "name": "Chimblo v. C.I.R.",
-            "citation": "99123958 (2d Cir. 1999)",
+            "citation": "345 F.2d 789 (2d Cir. 1999)",
             "label": "distinguished",
             "reasoning": "The appellate court distinguishes Anderson v. Court based on different factual circumstances."
         }
@@ -63,7 +63,7 @@ For example,
     "citing_cases": [
         {
             "name": "State v. Padavich",
-            "citation": "95152178 (8th Cir. 1998)",
+            "citation": "987 F.2d 543 (8th Cir. 1998)",
             "label": "declined to follow",
             "reasoning": "The Supreme Court declines to follow the lower court's interpretation of the statute as seen in Johnson v. State."
         }
