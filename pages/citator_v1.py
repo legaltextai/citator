@@ -13,14 +13,12 @@ from openai import OpenAI
 from enum import Enum
 from pydantic import BaseModel, Field
 
-# Set up logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 logger = logging.getLogger(__name__)
 
 st.title ("Opinion Citation Analyzer") 
 
 
-# Environment variables
 BASE_URL = os.getenv('BASE_URL', "https://www.courtlistener.com/api/rest/v4")
 AUTH_TOKEN = os.getenv('AUTH_TOKEN', "your_courtlistener_authorization_token")
 GENAI_API_KEY = os.getenv('GENAI_API_KEY', "google_gemini_api")
@@ -31,9 +29,6 @@ HEADERS = {
 }
 
 genai.configure(api_key=GENAI_API_KEY)
-
-# Ensure you've set your OpenAI API key
-#openai.api_key = OPENAI_API_KEY
 
 client = OpenAI(api_key=OPENAI_API_KEY)
 
@@ -106,7 +101,6 @@ with st.expander("Citation Color Legend"):
 • 🟣 Purple (Mentioned): The citing case references the cited case without adopting or rejecting it as a precedent.
 """)
 
-# Add a separator
 st.markdown("---")
 
 def get_case_name(opinion_id: str) -> str:
@@ -184,7 +178,6 @@ def process_single_opinion(main_case_name: str, citing_case_name: str, date: str
 
     try:
         result = completion.choices[0].message.tool_calls[0].function.parsed_arguments
-        # Ensure the result is a dictionary with the expected structure
         if isinstance(result, CitationAnalysis):
             result = result.model_dump()
         if not isinstance(result, dict):
@@ -260,7 +253,6 @@ def save_results_to_file(main_case_name: str, results: List[Dict[str, Any]], fil
         json.dump(output, f, indent=2)
 
 
-# Add buttons that set the search input
 col1, col2, col3 = st.columns(3)
 with col1:
     st.button("Plessy v Ferguson", on_click=set_search_input, args=("94508",))
@@ -280,7 +272,7 @@ if st.button("Analyze Citations"):
     with st.spinner("Processing citing opinions..."):
         main_case_name, results = process_opinion(opinion_id)
 
-    # Define a dictionary mapping colors to emoji icons and Streamlit color codes
+
     COLOR_ICONS = {
         "Green": ("✅", "green"),
         "Blue": ("🔵", "blue"),
