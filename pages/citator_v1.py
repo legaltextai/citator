@@ -262,15 +262,18 @@ with col3:
     st.button("11111", on_click=set_search_input, args=("11111",))
 
 
-opinion_id = st.text_input("Enter Opinion ID and press Enter:", key="opinion_id", value=st.session_state.opinion_id, on_change=set_search_input)
+opinion_id = st.text_input("Enter Opinion ID and press Enter:", key="opinion_id")
 
 if opinion_id:
+    st.session_state.opinion_id = opinion_id
+
+if st.session_state.opinion_id:
     with st.spinner("Fetching main case name..."):
-        main_case_name = get_case_name(opinion_id)
+        main_case_name = get_case_name(st.session_state.opinion_id)
         st.write(f"Main Case: {main_case_name}")
 
     with st.spinner("Processing citing opinions..."):
-        main_case_name, results = process_opinion(opinion_id)
+        main_case_name, results = process_opinion(st.session_state.opinion_id)
 
 
     COLOR_ICONS = {
@@ -329,7 +332,7 @@ if opinion_id:
     else:
         st.warning(f"No results found for {main_case_name}")
 
-    output_filename = f'processed_opinions_{opinion_id}.json'
+    output_filename = f'processed_opinions_{st.session_state.opinion_id}.json'
     save_results_to_file(main_case_name, results, output_filename)
     st.info(f"Processed results have been saved to '{output_filename}'")
 
@@ -349,9 +352,8 @@ st.sidebar.info(
     
     Enter an opinion ID and click 'Analyze Citations' to see how other cases cite and treat the main case.
     
+    Limited to 20  citing cases for now. Limited to approx 80,000 first words in the opinion text for the prompt. 
+    
     This is a prototype. 
-    
-    Limited to 20  citing cases for now. Limited to approx 80,000 words in the opinion text for the prompt.
-    
     """
 )
