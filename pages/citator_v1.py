@@ -154,7 +154,7 @@ def process_single_opinion(main_case_name: str, citing_case_name: str, date: str
     Provide a very detailed and long reasoning, in bullet points, for each classification. Add quotes from the opinion text that support your choice.
 
     Opinion Text:
-    {opinion_text[:100000]}
+    {opinion_text[:400000]} #limited to 400,000 characters, which is approx 80K words, which is approx 120K tokens, the limit for gpt-4o
     """
 
     completion = client.beta.chat.completions.parse(
@@ -262,9 +262,9 @@ with col3:
     st.button("11111", on_click=set_search_input, args=("11111",))
 
 
-opinion_id = st.text_input("Enter Opinion ID:", st.session_state.opinion_id)
+opinion_id = st.text_input("Enter Opinion ID and press Enter:", key="opinion_id", value=st.session_state.opinion_id, on_change=set_search_input)
 
-if st.button("Analyze Citations"):
+if opinion_id:
     with st.spinner("Fetching main case name..."):
         main_case_name = get_case_name(opinion_id)
         st.write(f"Main Case: {main_case_name}")
@@ -349,6 +349,6 @@ st.sidebar.info(
     
     Enter an opinion ID and click 'Analyze Citations' to see how other cases cite and treat the main case.
     
-    This is a prototype. Limited to 3 citing cases for now.
+    This is a prototype. Limited to 20 citing cases for now. Limited to 100,000 characters in the opinion text for the prompt.
     """
 )
