@@ -19,8 +19,12 @@ logger = logging.getLogger(__name__)
 with st.expander("Updates"):
     st.markdown("""
 • Increased the limit for the opinion text to 400,000 characters, which is approx 80K words, which is approx 120K tokens, the limit for gpt-4o
+                
 • Increased the limit for the citing cases to 20
-• Added a color legend to the results """) 
+                
+• Added a color legend to the results 
+                
+                """) 
                 
 st.title ("Opinion Citation Analyzer") 
 
