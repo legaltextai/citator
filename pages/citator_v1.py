@@ -349,6 +349,6 @@ st.sidebar.info(
     
     Enter an opinion ID and click 'Analyze Citations' to see how other cases cite and treat the main case.
     
-    This is a prototype. Limited to 10 citing cases for now. Limited to approx 100,000 words in the opinion text for the prompt.
+    This is a prototype. Limited to 20  citing cases for now. Limited to approx 100,000 words in the opinion text for the prompt.
     """
 )
