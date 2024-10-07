@@ -113,6 +113,11 @@ with st.expander("Citation Color Legend"):
 
 st.markdown("---")
 
+st.write("""
+         The model runs in parallel over 20 citing cases and analyzes the treatment of the cited case based on [this prompt](https://github.com/legaltextai/citator/blob/17f6e75169e42c6cf5f56cc3392204b3fff5d8c0/pages/citator_v1.py#L130)
+         
+         """)
+
 def get_case_name(opinion_id: str) -> str:
     url = f"{BASE_URL}/clusters/{opinion_id}/"
     data = make_request(url)
