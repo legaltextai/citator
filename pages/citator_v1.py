@@ -256,13 +256,10 @@ def save_results_to_file(main_case_name: str, results: List[Dict[str, Any]], fil
         json.dump(output, f, indent=2)
 
 
-col1, col2, col3 = st.columns(3)
-with col1:
-    st.button("Plessy v Ferguson", on_click=set_search_input, args=("94508",))
-with col2:
-    st.button("Google v Oracle", on_click=set_search_input, args=("4870762",))
-with col3:
-    st.button("11111", on_click=set_search_input, args=("11111",))
+st.write("Try one of these cases or enter opinion_id")
+st.button("Plessy v Ferguson", on_click=set_search_input, args=("94508",))
+st.button("Marbury v Madison", on_click=set_search_input, args=("84759",))
+
 
 st.text_input("Enter Opinion ID and press Enter:", key="temp_opinion_id", on_change=on_text_input_change)
 
