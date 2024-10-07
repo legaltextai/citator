@@ -225,6 +225,9 @@ if "opinion_id" not in st.session_state:
 def set_search_input(value):
     st.session_state.opinion_id = value
 
+def on_text_input_change():
+    st.session_state.opinion_id = st.session_state.temp_opinion_id
+
 def process_opinion(opinion_id: str) -> Tuple[str, List[Dict[str, Any]]]:
     main_case_name = get_case_name(opinion_id)
     logging.info(f"Main Case Name for opinion {opinion_id}: {main_case_name}")
@@ -261,11 +264,7 @@ with col2:
 with col3:
     st.button("11111", on_click=set_search_input, args=("11111",))
 
-
-opinion_id = st.text_input("Enter Opinion ID and press Enter:", key="opinion_id")
-
-if opinion_id:
-    st.session_state.opinion_id = opinion_id
+st.text_input("Enter Opinion ID and press Enter:", key="temp_opinion_id", on_change=on_text_input_change)
 
 if st.session_state.opinion_id:
     with st.spinner("Fetching main case name..."):
